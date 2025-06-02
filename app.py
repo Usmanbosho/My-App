@@ -1,13 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 app = Flask(__name__)
 app.secret_key = 'atbu_secret_key_123'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+# Database config
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'users.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 
+# User model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -16,7 +22,7 @@ class User(db.Model):
     student_id = db.Column(db.String(20), unique=True, nullable=True)
     department = db.Column(db.String(100), nullable=True)
     level = db.Column(db.String(10), nullable=True)
-    profile_image = db.Column(db.String(200), nullable=True, default='your_profile_image.jpg') # Default image
+    profile_image = db.Column(db.String(200), nullable=True, default='default.jpg')
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -24,8 +30,14 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+# Create tables
 with app.app_context():
     db.create_all()
+
+# Routes
+@app.route('/')
+def index():
+    return redirect(url_for('login'))
 
 @app.route('/home')
 def home():
@@ -33,6 +45,7 @@ def home():
         user = User.query.filter_by(username=session['username']).first()
         return render_template('home.html', user=user)
     return redirect(url_for('login'))
+
 @app.route('/dashboard')
 def dashboard():
     if 'logged_in' in session:
@@ -58,11 +71,17 @@ def register():
             flash('Username already exists. Please choose another.', 'error')
             return render_template('register.html')
 
-        if User.query.filter_by(student_id=student_id).first():
+        if student_id and User.query.filter_by(student_id=student_id).first():
             flash('Student ID already exists.', 'error')
             return render_template('register.html')
 
-        new_user = User(username=username, full_name=full_name, student_id=student_id, department=department, level=level)
+        new_user = User(
+            username=username,
+            full_name=full_name,
+            student_id=student_id,
+            department=department,
+            level=level
+        )
         new_user.set_password(password)
 
         db.session.add(new_user)
@@ -72,7 +91,7 @@ def register():
 
     return render_template('register.html')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -84,6 +103,7 @@ def login():
             session['logged_in'] = True
             session['username'] = username
             session['full_name'] = user.full_name
+            flash('Login successful!', 'success')
             return redirect(url_for('home'))
         else:
             flash('Invalid username or password', 'error')
