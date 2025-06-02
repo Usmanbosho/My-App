@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+</head>
+<body>
+  {% include 'preloader.html' %}
+  <!-- Header -->
+  <div class="header">
+    <div class="box"></div>
+    <h1 class="home-title">My Home</h1>
+    <div class="header-buttons">
+      <button class="support-btn">Support</button>
+      <button class="logout-btn"><i class="fas fa-sign-out-alt"></i>        Logout</button>
+    </div>
+  </div>
+  <div class="line"></div>
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Profile Card -->
+    <div class="card profile-card">
+      <div class="session-info">
+        <img src="https://img.icons8.com/ios-filled/24/calendar--v1.png" alt="calendar" class="icon"> FIRST SEMESTER, 2024/2025 SESSION
+      </div>
+      <div class="profile-picture"><img src="{{url_for('static', filename='logo.png')}}" width="90" alt=""></div>
+      <h2 class="name">ALIYU ABUBAKAR</h2>
+      <p class="student-id">24/75126U/9</p>
+      <p class="details">Full Time • Computer Science • 200 Level <br> Level</p>
+      <a href="dashboard"><button class="dashboard-btn">Proceed to Dashboard</button></a>
+    </div>
+
+    <!-- Steps Card -->
+    <div class="card steps-card">
+      <h3 class="welcome-msg">Welcome back, Aliyu</h3>
+      <div class="base"></div>
+      <p class="steps-status">2/2 registration steps completed <br>
+      <p class="status">*Please note hostel accommodation is not compulsory and it depends on eligibility and availability.</p>
+        </p>
+       <h5 class="title">Follow the steps to get you started for the new session</h2>
+              
+      <div class="step">
+        <span class="check">✔</span>
+        <span class="step-label">Fees</span>
+        <span class="arrow"><button class="bt">&gt;</button></span>
+      </div>
+      <div class="step">
+        <span class="check">✔</span>
+        <span class="step-label">Courses</span>
+        <span class="arrow"><button class="bt">&gt;</button></span>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="help-section">
+        <p class="help-title">Issues with Payment Verification?</p>
+        <p class="help-text">
+          Payments are typically verified automatically in the background.<br>
+          If your payment hasn't been verified, please click the button below to requery the verification.
+        </p>
+        <button class="requery-btn">Requery Payment Verification</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback -->
+  <div class="feedback">
+    <button class="feedback-btn">Give Feedback</button>
+  </div>
+  <script src="{{ url_for('static', filename='load.js') }}"></script>
+  <script src="{{ url_for('static', filename='conn.js') }}"></script>
+</body>
+</html>

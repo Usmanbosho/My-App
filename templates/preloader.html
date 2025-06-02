@@ -1,0 +1,114 @@
+<style>
+    /* Preloader Styles */
+    .preloader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f4f4f4; /* Or any background color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* Ensure it's on top */
+    }
+
+    .loader {
+        position: relative;
+        width: 60px;
+        height: 60px;
+    }
+
+    .dot {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: orbit 2s ease-in-out infinite;
+    }
+
+    .dot:nth-child(1) {
+        background-color: #4285f4; /* Blue */
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        animation-delay: 0s;
+    }
+
+    .dot:nth-child(2) {
+        background-color: #ea4335; /* Red */
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        animation-delay: 0.4s;
+    }
+
+    .dot:nth-child(3) {
+        background-color: #fbbc05; /* Yellow */
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        animation-delay: 0.8s;
+    }
+
+    .dot:nth-child(4) {
+        background-color: #34a853; /* Green */
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        animation-delay: 1.2s;
+    }
+
+    @keyframes orbit {
+        0% {
+            transform: translate(0, 0);
+            opacity: 0.7;
+        }
+        50% {
+            transform: translate(0, 20px); /* Adjust orbit radius */
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 0.7;
+        }
+    }
+
+    .container {
+        display: none; /* Initially hide the main content */
+    }
+ .status-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: -10px;
+  color: white;
+  font-weight: bold; 
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.status-bar.online {
+  background-color: #28a745; /* Green */
+}
+
+.status-bar.offline {
+  background-color: #000000; /* Black */ 
+  color: #ea4335;
+}
+</style>
+
+<div class="preloader-wrapper">
+    <div class="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+  <div id="connection-status" class="status-bar">
+    <p id="status-text">Checking connection...</p>
+  </div>
+ 

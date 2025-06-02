@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATBU - Sign In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    {% include 'preloader.html' %}
+    <div class="container">
+        <div class="left">
+            <div class="img">
+                <center><img src="{{ url_for('static', filename='logo.png') }}" width="80" alt=""></center>
+            </div>
+            <div class="text">
+                <h4>Abubakar Tafawa Balewa University, Bauchi</h4>
+                <h5 style="font-family: Arial, Helvetica, sans-serif; font-weight: none;">Doctrina Mater Artium</h5>
+            </div>
+            <div class="login-form">
+                <form action="{{ url_for('login') }}" method="post">
+                    <h2>Sign In</h2>
+
+                    <div class="input-container">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="input-container">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="show-password">
+                        <input type="checkbox" id="showPassword">
+                        <label for="showPassword">Show Password</label>
+                    </div>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                    <button type="submit">Sign In</button>
+                    <a href="#"> Forgot Password <i class="fas fa-arrow-right"></i></a>
+                </form>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="yellow-shape"></div>
+            <div class="cyan-shape"></div>
+            <div class="blue-shape"></div>
+            <div class="png">
+                <img src="{{ url_for('static', filename='right-bg.svg')}}" alt="">
+            </div>
+            <div class="copyright">© Flexisaf Edusoft Limited 2025</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='load.js') }}"></script>
+    <script src="{{ url_for('static', filename='conn.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" />
+ 
+</head>
+<body>
+    {% include 'preloader.html' %}
+  <div class="container">
+    <!-- Sidebar -->
+    {% include 'sidebar.html' %}
+
+    <main class="main-content">
+       {% include 'header.html' %}
+
+      <!-- Welcome Card -->
+      <div class="session-info">
+         <h5 style="margin-bottom: 8px;">2024/2025</h5> 
+         <h3  style="margin-bottom: 8px;">200 Level LEVEL</h3> 
+         <h5 >First Semester </h5> 
+         
+      </div>
+      
+      <section class="welcome-card">
+        <h2>Hi Aliyu,</h2>
+        <p>Welcome to your dashboard</p>
+      </section>
+
+      <!-- Overview -->
+       <h5 style="margin-left: 30px; margin-top: 80px; margin-bottom: -20px;">Overview</h5>
+      <section class="overview">
+        <div class="card blue">
+            <div class="vive">
+                <i class="fas fa-graduation-cap"></i> 
+                <h3>Registered Courses</h3>
+                <div class="big-number">8</div>
+                <div class="line"></div>
+            </div>
+          
+          <div class="course-status">
+            <span class="regular">Regular<br> <b style="color: rgb(53, 207, 53); font-size: 18px;">8</b> </span>
+            <span class="carry">Carry-over<br> <b style="color: rgb(245, 105, 73); font-size: 18px;">0</b> </span>
+            <span class="arrears">Arrears <br> <b style="color: rgb(255, 0, 0); font-size: 18px;">0</b></span>
+          </div>
+          <a href="#">View More Details <i class="fas fa-chevron-right"></i> </a>
+        </div>
+        <div class="cards">
+            <div class="card light">
+                <p class="label"><i class="fa-solid fa-layer-group"></i> Level</p>
+                <p class="value">200 Level</p>
+              </div>
+              <div class="card light">
+                <p class="label"><i class="fa-solid fa-layer-group"></i> Semester</p>
+                <p class="value">First Semester</p>
+              </div>
+              <div class="card light">
+                <p class="label"><i class="fa-solid fa-layer-group"></i> CGPA</p>
+                <p class="value">N/A</p>
+              </div>
+        </div>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="quick-links">
+        <h5>Quick Links</h5>
+        <br>
+        <a href="#" class="quick-link">Payments history <i class="fas fa-chevron-right"></i> </a>
+        <a href="#" class="quick-link">Courses <i class="fas fa-chevron-right"></i></a>
+        <a href="#" class="quick-link">Results <i class="fas fa-chevron-right"></i> </a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function toggleProfileMenu() {
+      document.getElementById('profileDropdown').classList.toggle('show');
+    }
+
+    window.onclick = function (e) {
+      if (!e.target.closest('.avatar')) {
+        document.getElementById('profileDropdown')?.classList.remove('show');
+      }
+    }
+  </script>
+   <script src="{{ url_for('static', filename='load.js') }}"></script>
+   <script src="{{ url_for('static', filename='conn.js') }}"></script>
+</body>
+</html>

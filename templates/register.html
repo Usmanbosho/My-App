@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ATBU Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .left {
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+
+        .left .img {
+            margin-bottom: 20px;
+        }
+
+        .left .text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .left .text h4 {
+            color: #0056b3;
+            margin-bottom: 5px;
+        }
+
+        .left .text h5 {
+            font-size: 1em;
+            color: #6c757d;
+            font-style: none;
+        }
+
+        .register-form {
+            width: 100%;
+        }
+
+        .register-form h2 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: #0056b3;
+            font-size: 24px;
+        }
+
+        .register-form .alert {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+        }
+
+        .register-form .input-container {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .register-form .input-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .register-form .input-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: #0056b3;
+        }
+
+        .register-form button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .register-form button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .register-form p {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+            text-align: center;
+        }
+
+        .register-form p a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .register-form p a:hover {
+            text-decoration: underline;
+        }
+
+        .right {
+            width: 50%;
+            background-color: #0056b3;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .right h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .right p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .right .logo-container {
+            margin-bottom: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 95%;
+            }
+
+            .left, .right {
+                width: 100%;
+                padding: 30px;
+            }
+
+            .right h2 {
+                font-size: 2em;
+            }
+
+            .right p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="img">
+                <center><img src="{{ url_for('static', filename='logo.png') }}" width="80" alt="ATBU Logo"></center>
+            </div>
+            <div class="text">
+                <h4>Abubakar Tafawa Balewa University, Bauchi</h4>
+                <h5 style="font-family: Arial, Helvetica, sans-serif; font-weight: none;">Doctrina Mater Artium</h5>
+            </div>
+            <div class="register-form">
+                <h2>Register</h2>
+                {% with messages = get_flashed_messages(category_filter=['error']) %}
+                    {% if messages %}
+                        <div class="alert">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form method="POST" action="{{ url_for('register') }}">
+                    <div class="input-container">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="full_name">Full Name:</label>
+                        <input type="text" id="full_name" name="full_name" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="student_id">Student ID:</label>
+                        <input type="text" id="student_id" name="student_id" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="department">Department:</label>
+                        <input type="text" id="department" name="department" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="level">Level:</label>
+                        <input type="text" id="level" name="level" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Register</button>
+                    <p>Already have an account? <a href="{{ url_for('login') }}">Sign In</a></p>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='logo_white.png') }}" width="100" alt="ATBU Logo White">
+            </div>
+            <h2>Join the ATBU Community</h2>
+            <p>Create your account to access student resources, manage your academic profile, and stay connected with the university.</p>
+            <p>Experience a seamless educational journey with our integrated portal.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,345 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background-color: #143b85;
+  color: white;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+  height: 13vh;
+}
+.box{
+  position: fixed;
+  border: 1px solid white;
+  width: 40px;
+  height: 40px;
+  border-end-end-radius: 15px;
+  border-start-start-radius: 15px;
+  transform: rotate(60deg);
+}
+.line{
+  width: 100%;
+  height: 30px;
+  background-color: #143b85;
+  margin-top: 10px;
+  margin-top: 0px;
+}
+.home-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 100px;
+}
+.header-buttons{
+  margin-right: 100px;
+}
+.header-buttons button {
+  margin-left: 10px;
+  padding: 6px 12px; 
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.support-btn {
+  background-color: #f6921e;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  height: 38px;
+}
+
+.logout-btn { 
+  color: white;
+  background-color: #143b85;
+  border: 1px solid white;
+  height: 35px;
+}
+
+/* Main Content */
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px;
+  flex-wrap: wrap;
+  margin-top: -80px;
+}
+
+.card {
+  background-color: white; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  width: 410px;
+  box-sizing: border-box;
+}
+
+/* Profile Card */
+.profile-card{
+  height: 350px;
+}
+.profile-card .session-info {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.session-info{
+  background-color: rgb(237, 237, 237);
+  padding: 20px;
+}
+.icon {
+  margin-right: 6px;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; 
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #1a41e9;
+}
+
+.name {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.student-id,
+.details {
+  text-align: center;
+  font-size: 14px;
+  margin: 4px 0;
+  color: #555;
+}
+
+.dashboard-btn {
+  background-color: #1a41e9;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+ .bt{
+  background-color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+ }
+/* Steps Card */
+.steps-card{
+  padding: 20px;
+  border-radius: 5px;
+  width: 480px;
+  height: 490px;
+}
+.base{
+  background-color: #143b85;
+  height: 3px;
+  border-radius: 5px;
+}
+.welcome-msg {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.steps-status {
+  font-size: 14px;
+  margin-bottom: 20px; 
+  color: #afafaf;
+}
+.status{
+  font-size: 12px;
+  margin-top: -15px;
+  color: #afafaf;
+}
+.title{
+  font-size: 15px; 
+  margin-bottom: 35px;
+  color: gray;
+}
+.step {
+  background-color: #f6f6f6;
+  padding: 14px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.step:hover {
+  background-color: #d0e7f5;
+  transition: .9s;
+}
+.check {
+  color: green;
+  font-weight: bold;
+}
+
+.step-label {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.arrow {
+  color: #555;
+}
+
+.divider {
+  margin: 30px 0;
+  height: 1px;
+  border: none;
+  background-color: rgb(170, 170, 170);
+}
+
+.help-section .help-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.help-section .help-text {
+  font-size: 13px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.requery-btn {
+  background-color: white;
+  color: #1a41e9;
+  padding: 10px;
+  margin: 0;
+  width: 110%;
+  border: 1px solid #1a41e9;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: -20px;
+  transition: .9s;
+}
+
+/* Feedback */
+.feedback {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.feedback-btn {
+  background-color: #1a41e9;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* === MEDIA QUERIES FOR RESPONSIVENESS === */
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    flex-wrap: wrap;
+  }
+
+  .home-title {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .header-buttons {
+    margin-right: 0;
+    align-self: center;
+    display: inline-flex;
+    gap: 10px;
+  }
+
+  .main {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .profile-card {
+    height: auto;
+    padding-bottom: 20px;
+    margin-top: -100px;
+  }
+
+  .steps-card {
+    height: auto; 
+    margin-top: -35px;
+  }
+
+  .feedback { 
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 30px 20px;
+  }
+
+  .home-title {
+    font-size: 16px;
+  }
+
+  .support-btn,
+  .logout-btn {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .dashboard-btn {
+    font-size: 14px;
+    padding: 16px;
+  }
+
+ 
+  .arrow {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  .requery-btn {
+    font-size: 13px;
+    padding: 8px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .feedback-btn {
+     
+    font-size: 14px;
+  }
+}

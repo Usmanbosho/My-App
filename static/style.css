@@ -1,0 +1,213 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Use a common font */
+    color: #000000; /* Default text color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+.header{
+    background-color: #264485; /* Dark blue header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+}
+
+.left {
+    padding: 50px;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    background-color: white; /* Add white background */
+}
+
+.left .img {
+    margin-bottom: 20px;
+}
+
+.left .text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.left .text h4 {
+    color: black; /* Dark blue color */
+    margin-bottom: 5px;
+}
+
+.left .text h5 {
+    font-size: 1em;
+    color: #6c757d; /* Gray color */
+    font-style: none;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: black; /* Dark blue color */
+    font-size: 18px;
+}
+
+.login-form .alert p {
+    color: #db5663;
+   font-size: 12px;
+   padding: 10px;
+}
+
+.login-form .input-container {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.login-form .input-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.login-form .input-container input {
+    width: 100%;
+    padding: 10px 30px 10px 10px; /* Add padding for icon */
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 5px;
+    font-size: 16px;
+    outline: rgb(38, 68, 133);
+}
+
+.login-form .input-container i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.login-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3; /* Dark blue button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.login-form button[type="submit"]:hover {
+    background-color: #003d82;
+}
+
+.login-form a, i {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    color: #0056b3; /* Dark blue link */
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.login-form a i {
+    margin-right: 5px;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+.login-form .show-password {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.login-form .show-password input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.login-form .show-password label {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.right {
+    position: relative; /* Needed for absolute positioning of shapes */
+    width: 60%;
+    height: 100vh;
+    background-color: #264485;
+    overflow: hidden; /* To contain the shapes if needed */
+    border-radius: 10px 0 0 10px; /* Rounded left side */
+}
+
+.right .yellow-shape {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 180px; /* Adjust size */
+    height: 150px; /* Adjust size */
+    background-color: yellow;
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    transform: rotate(1200deg); /* Rotate the shape */
+}
+
+.right .cyan-shape {
+    position: absolute;
+    top: 35%;
+    right: 0;
+    width: 180px; /* Adjust size */
+    height: 120px; /* Adjust size */
+    background-color: cyan;
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+}
+
+.right .png img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+}
+
+.right .copyright {
+    position: absolute;
+    bottom: 70px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white; /* Or any color you prefer */
+    font-size: 0.8em; /* Adjust font size */
+    z-index: 3; /* Ensure it's above the background image */
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .right {
+        display: none; /* Hide the right side on small screens */
+    }
+    .left {
+        width: 100%; /* Make the left side take full width */
+    }
+}
