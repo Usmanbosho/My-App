@@ -32,13 +32,13 @@ def home():
     if 'logged_in' in session:
         user = User.query.filter_by(username=session['username']).first()
         return render_template('home.html', user=user)
-    return redirect(url_for('login'))
+    return redirect(url_for('/'))
 @app.route('/dashboard')
 def dashboard():
     if 'logged_in' in session:
         user = User.query.filter_by(username=session['username']).first()
         return render_template('dashboard.html', user=user)
-    return redirect(url_for('login'))
+    return redirect(url_for('/'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -68,11 +68,11 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         flash('Registration successful! Please log in.', 'success')
-        return redirect(url_for('login'))
+        return redirect(url_for('/'))
 
     return render_template('register.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -94,7 +94,7 @@ def login():
 def logout():
     session.clear()
     flash('You have been logged out successfully', 'info')
-    return redirect(url_for('login'))
+    return redirect(url_for('/'))
 
 if __name__ == '__main__':
     app.run(debug=True)
