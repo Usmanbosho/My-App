@@ -1,2 +1,2 @@
 Flask==2.3.2
-web: gunicorn app:app
+gunicorn==21.2.0
