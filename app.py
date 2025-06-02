@@ -45,6 +45,13 @@ def home():
         user = User.query.filter_by(username=session['username']).first()
         return render_template('home.html', user=user)
     return redirect(url_for('login'))
+@app.route('/courses')
+def courses():
+    if 'logged_in' in session:
+        user = User.query.filter_by(username=session['username']).first()
+        return render_template('courses.html', user=user)
+    return redirect(url_for('login'))
+
 
 @app.route('/dashboard')
 def dashboard():

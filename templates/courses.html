@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png')}}" type="image/x-icon">
+ 
+</head>
+<body>
+    {% include 'preloader.html' %}
+  <div class="container">
+    <!-- Sidebar -->
+    {% include 'sidebar.html' %}
+
+    <main class="main-content">
+       {% include 'header.html' %}
+
+      <!-- Welcome Card -->
+      <div class="session-info">
+         <h5 style="margin-bottom: 8px;">2024/2025</h5> 
+         <h3  style="margin-bottom: 8px;">200 Level LEVEL</h3> 
+         <h5 >First Semester </h5> 
+      </div>
+      
+
+      <!-- Overview -->
+       <h5 style="margin-left: 30px; margin-top: 40px; margin-bottom: -10px;">Courses</h5>
+       <div class="course-wrapper">
+        <div class="course-form-panel">
+          <div class="form-group">
+            <select name="department">
+                <option value="2024/2025 Session">2024/2025 Session</option>
+            </select>
+            <select name="level">
+                <option value="First Semester ">First Semester</option>
+            </select>
+          </div>
+          <div class="button-row">
+            <button type="submit">Download Course Form</button>
+            <button type="button" class="outline-btn"> Generate Exam Card</button>
+          </div>
+        </div>
+      
+        <div class="course-list-panel">
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">MTH211 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Linear algebra i</p>
+            <div class="unit-load">3</div>
+          </div>
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">GNS111 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Use of English I</p>
+            <div class="unit-load">2</div>
+          </div>
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">GNS211 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Information Science</p>
+            <div class="unit-load">2</div>
+          </div>
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">CS211 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Computer Programming I</p>
+            <div class="unit-load">3</div>
+          </div>
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">CS212 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Web Programming</p>
+            <div class="unit-load">3</div>
+          </div>
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">ST211 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Discrete and Cont. Prob. and Prob. Distributions</p>
+            <div class="unit-load">3</div>
+          </div>
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">PHY211 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Intermediate Mechanics</p>
+            <div class="unit-load">3</div>
+          </div>
+          <div class="course-list-item">
+            <h4 style="justify-content: space-between;">MTH212 <b style="float: right; color: gray; font-size: 10px;">Unit Load</b></h4>
+            <p style="color: gray; font-size: 10px;"> Mathematical Method</p>
+            <div class="unit-load">2</div>
+          </div>
+          <!-- Repeat .course-list-item as needed -->
+        </div>
+      </div>
+      
+    </main>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function toggleProfileMenu() {
+      document.getElementById('profileDropdown').classList.toggle('show');
+    }
+
+    window.onclick = function (e) {
+      if (!e.target.closest('.avatar')) {
+        document.getElementById('profileDropdown')?.classList.remove('show');
+      }
+    }
+  </script>
+   <script src="{{ url_for('static', filename='load.js') }}"></script>
+   <script src="{{ url_for('static', filename='conn.js') }}"></script>
+</body>
+</html>

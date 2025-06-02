@@ -282,6 +282,141 @@
   .quick-link:hover .icon {
     color: #0d6efd;
   }
+  .course-wrapper {
+    display: flex;
+    gap: 30px;
+    margin: 40px 30px;
+    flex-wrap: wrap;
+  }
+  
+  /* Course Form Section */
+  .course-form-panel {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    height: 250px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .course-form-panel .form-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .course-form-panel select,
+  .course-form-panel input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    background-color: white;
+  }
+  
+  /* Buttons Row */
+  .course-form-panel .button-row {
+    display: block;
+    gap: 12px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .course-form-panel button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0d4db4;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .course-form-panel button:hover {
+    background-color: #093a8a;
+  }
+  
+  .course-form-panel .outline-btn {
+    background: transparent;
+    color: #0d4db4;
+    border: 2px solid #0d4db4;
+  }
+  
+  .course-form-panel .outline-btn:hover {
+    background: #f0f6ff;
+  }
+  
+  /* Course List Section */
+  .course-list-panel {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .course-list-item {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .course-list-item:last-child {
+    border-bottom: none;
+  }
+  
+  .course-list-item h4 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2d3d;
+  }
+  
+  .course-list-item p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .course-list-item .unit-load {
+    font-size: 0.9rem;
+    color: #777;
+    text-align: right;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .course-wrapper {
+      flex-direction: column;
+    }
+  
+    .course-form-panel,
+    .course-list-panel {
+      width: 100%;
+      margin-left: -20px;
+    }
+  
+    .course-form-panel .form-group {
+      flex-direction: column;
+    }
+  
+    .course-form-panel .button-row {
+      flex-direction: column;
+    }
+  
+    .course-form-panel button {
+      width: 100%;
+    }
+  }
   
   /* Responsive Styles */
   @media (max-width: 768px) {
