@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 app.secret_key = 'atbu_secret_key_123'
 
-# Database config
+#Database config
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'users.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
